@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div id="Cadastro">
+    <form th:action="@{/prancheta}" method="post" th:object="${carro}">
+        <input type="text" th:field="*{placa}">
+        <span>Placa</span>
+        <br>
+        <input type="date" th:field="*{data}">
+        <span>Data</span>
+        <br>
+        <input type="datetime" th:field="*{hora}">
+        <span>Hora</span>
+        <br>
+        <input type="text" th:field="*{preco}">
+        <span>Preço</span>
+        <br>
+        <input type="text" th:field="*{pago}">
+        <span>Foi pago?</span>
+        <br>
+        <input type="text" th:field="*{tcarro}">
+        <span>Carro</span>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+    </div>
+</body>
+</html>

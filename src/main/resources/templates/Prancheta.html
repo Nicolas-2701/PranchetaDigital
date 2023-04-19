@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prancheta</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Prancheta</h1>
+    <table border="1px">
+        <tr>
+            <th>ID</th>
+            <th>Carro</th>
+            <th>Data</th>
+            <th>Hora</th>
+        </tr>
+        <th:block th:each="carro : ${carros}">
+            <tr>
+                <td th:text="${carro.id}"></td>
+                <td th:text="${carro.carro}"></td>
+                <td th:text="${carro.data}"></td>
+                <td th:text="${carro.hora}"></td>
+            </tr>
+        </th:block>
+    </table>
+</body>
+</html>
