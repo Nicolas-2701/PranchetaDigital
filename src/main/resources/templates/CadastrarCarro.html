@@ -5,31 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/cadastro.css">
 </head>
 <body>
-    <div id="Cadastro">
+    <section class="login-panel">
+  <div class="left-side"></div>
+  <div class="right-side">
+    <h1>Cadastro</h1>
+    <p>Coloque as informações</p>
     <form th:action="@{/prancheta}" method="post" th:object="${carro}">
-        <input type="text" th:field="*{placa}">
-        <span>Placa</span>
-        <br>
-        <input type="date" th:field="*{data}">
-        <span>Data</span>
-        <br>
-        <input type="datetime" th:field="*{hora}">
-        <span>Hora</span>
-        <br>
-        <input type="text" th:field="*{preco}">
-        <span>Preço</span>
-        <br>
-        <input type="text" th:field="*{pago}">
-        <span>Foi pago?</span>
-        <br>
-        <input type="text" th:field="*{tcarro}">
-        <span>Carro</span>
-        <br>
-        <button type="submit">Enviar</button>
+    <input type="text" th:field="*{placa}" placeholder="Placa">
+    <input type="date" th:field="*{data}" placeholder="Data">
+    <input type="datetime" th:field="*{hora}" placeholder="Hora">
+    <input type="text" th:field="*{preco}" placeholder="Valor">
+    <input type="text" th:field="*{pago}" placeholder="Forma de Pagamento">
+    <input type="text" th:field="*{tcarro}" placeholder="Carro">
+    <button class="button-six clip-path">Cadastrar</button>
     </form>
-    </div>
+    <a href="/prancheta"><button class="button-six clip-path">Prancheta</button></a>
+  </div>
+</section>
 </body>
 </html>
