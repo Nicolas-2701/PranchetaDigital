@@ -14,15 +14,21 @@
     <h1>Cadastro</h1>
     <p>Coloque as informações</p>
     <form th:action="@{/prancheta}" method="post" th:object="${carro}">
+    <input type="text" th:field="*{tcarro}" placeholder="Veículo">
     <input type="text" th:field="*{placa}" placeholder="Placa">
-    <input type="date" th:field="*{data}" placeholder="Data">
-    <input type="datetime" th:field="*{hora}" placeholder="Hora">
+    <input type="datetime" th:field="*{hora}" placeholder="Hora Entrada">
+    <input type="datetime" th:field="*{horaS}" placeholder="Hora Saida">
     <input type="text" th:field="*{preco}" placeholder="Valor">
-    <input type="text" th:field="*{pago}" placeholder="Forma de Pagamento">
-    <input type="text" th:field="*{tcarro}" placeholder="Carro">
+    <input type="text" th:field="*{pago}" placeholder="Forma de Pagamento" list="opcoesPagamento">
+    <datalist id="opcoesPagamento">
+  <option value="Dinheiro">
+  <option value="Débito">
+  <option value="Crédito">
+  <option value="Pix">
+  </datalist>
+  <input type="text" th:field="*{obs}" placeholder="Observações">
     <button class="button-six clip-path">Cadastrar</button>
-    </form>
-    <a href="/prancheta"><button class="button-six clip-path">Prancheta</button></a>
+    </form><a href="/prancheta"><button class="button-six clip-path">Prancheta</button></a>
   </div>
 </section>
 </body>

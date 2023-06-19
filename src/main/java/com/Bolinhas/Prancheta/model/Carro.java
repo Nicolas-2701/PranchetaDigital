@@ -1,11 +1,16 @@
 package com.Bolinhas.Prancheta.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 
 @Entity
 @Table
@@ -13,21 +18,33 @@ public class Carro {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	@Column
 	private String placa;
 	@Column
-	private String data;
+	private LocalDate data2;
+	private String data=String.valueOf(data2);
 	@Column
 	private String hora;
+	@Column
+	private String horaS;
 	@Column
 	private Double preco;
 	@Column 
 	private String pago;
 	@Column 
 	private String tcarro;
+	@Column 
+	private String obs;
 	
-	public Carro(int id, String placa, String data, String hora, Double preco, String pago, String carro) {
+	@PrePersist
+    public void prePersist() {
+        data2 = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        data= data2.format(formatter);
+    }
+	
+	public Carro(Long id, String placa, String data, String hora, Double preco, String pago, String carro,String obs) {
 		super();
 		this.id = id;
 		this.placa = placa;
@@ -36,16 +53,33 @@ public class Carro {
 		this.preco = preco;
 		this.pago = pago;
 		this.tcarro = carro;
+		this.obs = obs;
 	}
 	
 	public Carro() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
+	public String getObs() {
+		return obs;
+	}
+
+	public void setObs(String obs) {
+		this.obs = obs;
+	}
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public LocalDate getData2() {
+		return data2;
+	}
+
+	public void setData2(LocalDate data2) {
+		this.data2 = data2;
+	}
+
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getPlaca() {
@@ -83,6 +117,14 @@ public class Carro {
 	}
 	public void setTcarro(String carro) {
 		this.tcarro = carro;
+	}
+
+	public String getHoraS() {
+		return horaS;
+	}
+
+	public void setHoraS(String horaS) {
+		this.horaS = horaS;
 	}
 	
 	

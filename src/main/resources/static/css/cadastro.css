@@ -6,7 +6,6 @@ button {
 	border: 0;
 	cursor: pointer;
 	color: black;
-	text-transform: lowercase;
 	border-radius: 10px;
 	display: inline-block;
 	overflow: hidden;
@@ -73,7 +72,7 @@ body {
 
 .login-panel {
     width: 50%;
-    height: 500px;
+    height: 550px;
     background-color: #fff;
 }
 

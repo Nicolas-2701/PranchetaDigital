@@ -33,7 +33,13 @@ public class CarroController {
 	
 	@PostMapping("/prancheta")
     public String salvar(@ModelAttribute("carro") Carro carro) {
-        carroRepository.save(carro);
+		carroRepository.save(carro);
         return "redirect:/prancheta";
     }
+	
+	@PostMapping("/delete")
+	public String delete(Long id) {
+		carroRepository.deleteById(id);
+		return "redirect:/prancheta";
+	}
 }

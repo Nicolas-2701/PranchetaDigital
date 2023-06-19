@@ -8,27 +8,34 @@
     <link rel="stylesheet" href="/css/prancheta.css">
 </head>
 <body>
+
  <div id="wrapper">
+ <a href="/cadastrar"><button class="button-six clip-path">Cadastrar</button></a>
   <h1>Prancheta</h1>
   <table id="keywords" cellspacing="0" cellpadding="0">
     <thead>
       <tr>
-        <th><span>ID</span></th>
-        <th><span>Carro</span></th>
         <th><span>Data</span></th>
-        <th><span>Hora</span></th>
-        <th><span>Preço</span></th>
-        <th><a href="/cadastrar"><button class="button-six clip-path">Cadastrar</button></a></th>
+        <th><span>Carro</span></th>
+        <th><span>HoraEntrada</span></th>
+        <th><span>HoraSaida</span></th>
+        <th><span>Valor</span></th>
+        <th><span>Pagamento</span></th>
       </tr>
     </thead>
     <tbody>
     <th:block th:each="carro : ${carros}">
       <tr>
-        <td class="lalign" th:text="${carro.id}">silly tshirts</td>
-        <td th:text="${carro.tcarro}">6,000</td>
-        <td th:text="${carro.data}">110</td>
+        <td th:text="${carro.data}">6,000</td>
+        <td th:text="${carro.tcarro}">110</td>
         <td th:text="${carro.hora}">1.8%</td>
+        <td th:text="${carro.horaS}">1.8%</td>
         <td>R$ <span th:text="${carro.preco}">22.2</span></td>
+        <td th:text="${carro.pago}">1.8%</td>
+        <form action="/delete" method="post">
+        <input type="hidden" th:value="${carro.id}" name="id">
+        <td><button type="submit" class="button-seven clip-path">Delete</button></td>
+        </form>
       </tr>
     </th:block>
     </tbody>

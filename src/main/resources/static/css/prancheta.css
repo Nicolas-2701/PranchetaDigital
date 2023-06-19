@@ -2,12 +2,9 @@
 
 button {
 	font-size: 15px;
-	padding: 10px 30px;
-	margin: 10px;
 	border: 0;
 	cursor: pointer;
 	color: black;
-	text-transform: lowercase;
 	border-radius: 10px;
 	display: inline-block;
 	overflow: hidden;
@@ -50,6 +47,29 @@ button.gradient:hover {
 }
 
 .button-six:hover::before {
+	clip-path: circle(100% at 50% 50%);
+}
+
+.button-seven {
+	background: white;
+	color: black;
+	transition: 0.4s;
+	transform: perspective(1px) translateZ(0);
+}
+
+.button-seven:hover {
+	color: white;
+	box-shadow: 0 0 0 10px rgba(250, 250, 250, 0.1)
+}
+
+.button-seven::before {
+	clip-path: circle(0.5% at 50% 50%);
+	background: rgb(128, 0, 0);
+	transition: 0.4s;
+	opacity: 1;
+}
+
+.button-seven:hover::before {
 	clip-path: circle(100% at 50% 50%);
 }
 
