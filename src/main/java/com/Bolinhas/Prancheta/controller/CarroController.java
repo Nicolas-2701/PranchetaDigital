@@ -30,6 +30,13 @@ public class CarroController {
         return "Prancheta";
 	}
 	
+	@GetMapping("/export")
+	public String export(Model model) {
+		List<Carro> carros = carroRepository.findAll();
+        model.addAttribute("carros", carros);
+        return "Export";
+	}
+	
 	@GetMapping("/cadastrar")
     public String cadastrar(Model model) {
         model.addAttribute("carro", new Carro());

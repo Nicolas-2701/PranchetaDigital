@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export</title>
+    <link rel="stylesheet" href="/css/prancheta">
+</head>
+<body>
+<span>Id;Data;Carro;Placa;Entrada;Saida;Valor;Pagamento;Observação</span><br>
+<div th:each="carro : ${carros}">
+<span th:text="${carro.id}"></span>;
+<span th:text="${carro.data}"></span>;
+<span th:text="${carro.tcarro}"></span>;
+<span th:text="${carro.placa}"></span>;
+<span th:text="${carro.hora}"></span>;
+<span th:text="${carro.horaS}"></span>;
+<span th:text="${carro.preco}"></span>;
+<span th:text="${carro.pago}"></span>;
+<span th:text="${carro.obs}"></span><br>
+</div>
+</body>

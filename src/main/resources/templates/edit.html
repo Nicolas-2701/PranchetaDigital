@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/edit.css">
 </head>
 <body th:object="${carro}">
+<a href="/prancheta"><button type="submit" class="button-six clip-path">Prancheta</button></a>
   <main class="page payment-page">
     <section class="payment-form dark">
       <div class="container">
@@ -18,6 +19,7 @@
             <div class="item">
               <p class="item-name" th:text="*{tcarro}">Product 1</p>
               <p class="item-description" th:text="*{obs}">Lorem ipsum dolor sit amet</p>
+              <p class="item-description" th:text="*{placa}">Lorem ipsum dolor sit amet</p>
             </div>
             <div class="item">
               <p class="item-name" th:text="*{data}">Product 2</p>

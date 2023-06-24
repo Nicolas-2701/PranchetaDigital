@@ -1,3 +1,52 @@
+button {
+	font-size: 15px;
+	border: 0;
+	cursor: pointer;
+	color: black;
+	border-radius: 10px;
+	display: inline-block;
+	overflow: hidden;
+	transition: all 0.4s cubic-bezier(.86, .01, .15, .99);
+}
+
+button::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0;
+}
+
+button.gradient:hover {
+	color: white;
+	box-shadow: 0 5px 35px rgba(0, 0, 0, 0.6);
+	transform: translateY(-5px);
+}
+
+.button-six {
+	background: white;
+	color: black;
+	transition: 0.4s;
+	transform: perspective(1px) translateZ(0);
+}
+
+.button-six:hover {
+	color: white;
+	box-shadow: 0 0 0 10px rgba(250, 250, 250, 0.1)
+}
+
+.button-six::before {
+	clip-path: circle(0.5% at 50% 50%);
+	background: #5f74a0;
+	transition: 0.4s;
+	opacity: 1;
+}
+
+.button-six:hover::before {
+	clip-path: circle(100% at 50% 50%);
+}
 body{
 	background-color: #f6f6f6;
 }
