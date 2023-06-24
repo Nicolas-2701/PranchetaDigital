@@ -7,5 +7,5 @@ import com.Bolinhas.Prancheta.model.Carro;
 
 @Repository
 public interface CarroRepository extends JpaRepository<Carro, Long> {
-
+	Carro findById(long id);
 }

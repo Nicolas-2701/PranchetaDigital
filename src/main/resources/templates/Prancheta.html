@@ -36,6 +36,9 @@
         <input type="hidden" th:value="${carro.id}" name="id">
         <td><button type="submit" class="button-seven clip-path">Delete</button></td>
         </form>
+        <form th:action="@{/edit/{id}(id=${carro.id})}" method="get">
+        <td><button type="submit" class="button-six clip-path">Edit</button></td>
+        </form>
       </tr>
     </th:block>
     </tbody>

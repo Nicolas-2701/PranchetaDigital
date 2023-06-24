@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhe</title>
+    <link rel="stylesheet" href="/css/edit.css">
+</head>
+<body th:object="${carro}">
+  <main class="page payment-page">
+    <section class="payment-form dark">
+      <div class="container">
+        <div class="block-heading">
+        </div>
+        <form>
+          <div class="products">
+            <h3 class="title">Ficha</h3>
+            <div class="item">
+              <p class="item-name" th:text="*{tcarro}">Product 1</p>
+              <p class="item-description" th:text="*{obs}">Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class="item">
+              <p class="item-name" th:text="*{data}">Product 2</p>
+              <p class="item-description" th:text>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class="item">
+              <span>Entrada:</span><span class="item-name" th:text="*{hora}">Product 2</span><br>
+              <span>Saida:</span><span class="item-name" th:text="*{horaS}">Product 2</span>
+              <p class="item-description" th:text>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class="item">
+              <span>Forma de Pagamento:</span><span class="item-name" th:text="*{pago}">Product 2</span>
+            </div>
+            <div class="total">Valor<span class="price" th:text="*{preco}">$320</span><span class="price">R$</span></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
