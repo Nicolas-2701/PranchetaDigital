@@ -36,6 +36,8 @@ public class Carro {
 	private String tcarro;
 	@Column 
 	private String obs;
+	@Column
+	private String contato;
 	
 	@PrePersist
     public void prePersist() {
@@ -44,7 +46,7 @@ public class Carro {
         data= data2.format(formatter);
     }
 	
-	public Carro(Long id, String placa, String data, String hora, Double preco, String pago, String carro,String obs) {
+	public Carro(Long id, String placa, String data, String hora, Double preco, String pago, String carro,String obs,String contato) {
 		super();
 		this.id = id;
 		this.placa = placa;
@@ -54,6 +56,7 @@ public class Carro {
 		this.pago = pago;
 		this.tcarro = carro;
 		this.obs = obs;
+		this.contato = contato;
 	}
 	
 	public Carro() {
@@ -66,6 +69,14 @@ public class Carro {
 
 	public void setObs(String obs) {
 		this.obs = obs;
+	}
+
+	public String getContato() {
+		return contato;
+	}
+
+	public void setContato(String contato) {
+		this.contato = contato;
 	}
 
 	public Long getId() {

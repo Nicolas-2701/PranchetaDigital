@@ -22,6 +22,7 @@
         <th><span>HoraSaida</span></th>
         <th><span>Valor</span></th>
         <th><span>Pagamento</span></th>
+        <th><span>Contato</span></th>
       </tr>
     </thead>
     <tbody>
@@ -33,11 +34,12 @@
         <td th:text="${carro.horaS}">1.8%</td>
         <td>R$ <span th:text="${carro.preco}">22.2</span></td>
         <td th:text="${carro.pago}">1.8%</td>
+        <td th:text="${carro.contato}">1.8%</td>
         <form action="/delete" method="post">
         <input type="hidden" th:value="${carro.id}" name="id">
         <td><button type="submit" class="button-seven clip-path">Delete</button></td>
         </form>
-        <form th:action="@{/edit/{id}(id=${carro.id})}" method="get">
+        <form th:action="@{/ficha/{id}(id=${carro.id})}" method="get">
         <td><button type="submit" class="button-six clip-path">Edit</button></td>
         </form>
       </tr>

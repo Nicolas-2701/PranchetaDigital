@@ -13,15 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.Bolinhas.Prancheta.model.Carro;
 import com.Bolinhas.Prancheta.repository.CarroRepository;
-import com.Bolinhas.Prancheta.service.CarroService;
 
 @Controller
 public class CarroController {
 	
 	@Autowired
 	private CarroRepository carroRepository;
-	@Autowired
-	private CarroService carroService;
 	
 	@GetMapping("/prancheta")
 	public String list(Model model) {
@@ -43,6 +40,13 @@ public class CarroController {
         return "CadastrarCarro";
     }
 	
+	@GetMapping("/ficha/{id}")
+	public String ficha(@PathVariable("id") long id,ModelMap model) {
+		Carro carro = carroRepository.findById(id);
+		model.addAttribute("carro",carro);
+		return "ficha";
+	}
+	
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable("id") long id,ModelMap model) {
 		Carro carro = carroRepository.findById(id);
@@ -52,6 +56,22 @@ public class CarroController {
 	
 	@PostMapping("/prancheta")
     public String salvar(@ModelAttribute("carro") Carro carro) {
+		carroRepository.save(carro);
+        return "redirect:/prancheta";
+    }
+	
+	@PostMapping("/edit/{id}")
+    public String edit(@PathVariable("id") long id,@ModelAttribute("carro") Carro edit) {
+		Carro carro = carroRepository.findById(id);
+		carro.setData(edit.getData());
+		carro.setHora(edit.getHora());
+		carro.setHoraS(edit.getHoraS());
+		carro.setObs(edit.getObs());
+		carro.setPago(edit.getPago());
+		carro.setPlaca(edit.getPlaca());
+		carro.setPreco(edit.getPreco());
+		carro.setTcarro(edit.getTcarro());
+		carro.setContato(edit.getContato());
 		carroRepository.save(carro);
         return "redirect:/prancheta";
     }

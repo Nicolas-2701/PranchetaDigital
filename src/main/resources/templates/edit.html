@@ -6,35 +6,37 @@
     <title>Detalhe</title>
     <link rel="stylesheet" href="/css/edit.css">
 </head>
-<body th:object="${carro}">
+<body>
 <a href="/prancheta"><button type="submit" class="button-six clip-path">Prancheta</button></a>
   <main class="page payment-page">
     <section class="payment-form dark">
       <div class="container">
         <div class="block-heading">
         </div>
-        <form>
+        <form th:action="@{/edit/{id}(id=*{id})}" method="POST" th:object="${carro}">
           <div class="products">
-            <h3 class="title">Ficha</h3>
+            <h3 class="title">Edit</h3>
             <div class="item">
-              <p class="item-name" th:text="*{tcarro}">Product 1</p>
-              <p class="item-description" th:text="*{obs}">Lorem ipsum dolor sit amet</p>
-              <p class="item-description" th:text="*{placa}">Lorem ipsum dolor sit amet</p>
+              <span>Carro:</span><input class="item-name" th:field="*{tcarro}"/><br><br>
+              <span>Observação:</span><input class="item-description" th:field="*{obs}"/><br><br>
+              <span>Placa:</span><input class="item-description" th:field="*{placa}"/>
             </div>
             <div class="item">
-              <p class="item-name" th:text="*{data}">Product 2</p>
-              <p class="item-description" th:text>Lorem ipsum dolor sit amet</p>
+              <span>Data:</span><input class="item-name" th:field="*{data}">
             </div>
             <div class="item">
-              <span>Entrada:</span><span class="item-name" th:text="*{hora}">Product 2</span><br>
-              <span>Saida:</span><span class="item-name" th:text="*{horaS}">Product 2</span>
-              <p class="item-description" th:text>Lorem ipsum dolor sit amet</p>
+              <span>Entrada:</span><input class="item-name" th:field="*{hora}"/><br><br>
+              <span>Saida:</span><input class="item-name" th:field="*{horaS}"/>
             </div>
             <div class="item">
-              <span>Forma de Pagamento:</span><span class="item-name" th:text="*{pago}">Product 2</span>
+              <span>Forma de Pagamento:</span><input class="item-name" th:field="*{pago}"/>
             </div>
-            <div class="total">Valor<span class="price" th:text="*{preco}">$320</span><span class="price">R$</span></div>
+            <div class="item">
+              <span>Contato:</span><input class="item-name" th:field="*{contato}"/>
+            </div>
+            <div class="total">Valor<input class="price" th:field="*{preco}"/><span class="price">R$</span></div>
           </div>
+          <button type="submit" class="button-six clip-path">Salvar</button>
         </form>
       </div>
     </section>

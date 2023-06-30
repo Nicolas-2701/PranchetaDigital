@@ -26,10 +26,20 @@
   <option value="Crédito">
   <option value="Pix">
   </datalist>
+  <input type="text" th:field="*{contato}" placeholder="Contato" data-mask="(00) 0000-0000">
   <input type="text" th:field="*{obs}" placeholder="Observações">
     <button class="button-six clip-path">Cadastrar</button>
     </form><a href="/prancheta"><button class="button-six clip-path">Prancheta</button></a>
   </div>
 </section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var phoneInput = document.querySelector('input[data-mask="(00) 0000-0000"]');
+    var phoneMask = IMask(phoneInput, {
+      mask: '(00) 0000-0000'
+    });
+  });
+</script>
+<script src="https://unpkg.com/imask"></script>
 </body>
 </html>
